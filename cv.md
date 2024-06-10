@@ -3,19 +3,36 @@ layout: cv
 title: CV
 ---
 
+
 # Curriculum Vitæ
+[Full Version](/assets/files/cv.pdf)
 
 {% include contact.html %}
 
-## Section
+## Skills and Interests:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+* Networks (Layers, cloud, protocols, domains, etc) and Data Intensive Distributed Systems (Pyspark, DataFrames, Big Data).
+* Python, C, SQL, R, Scheme, Bash scripting, version control (git, bitbucket) and Jira/Agile. 
+* Relational database design, (SQLite/MySQL).
+* Managing/researching hardware, computers, competing products, and software. 
+* Application design (UX, user flow, user needs)
 
-* Ut enim ad minim veniam
-* Quis nostrud exercitation
-* Ullamco laboris nisi
-* Ut aliquip ex ea commodo consequat
+## Work Experience:
 
-### Subsection
+From May 2023 - Dec 2023 I was a Cloud/DevOps Engineer at [Toronto-Dominion Bank](https://www.td.com/ca/en/personal-banking) as a co-op. I worked primarily on NX-OS server YAML template automation with [jinja2](https://jinja.palletsprojects.com/en/3.1.x/) and took Implementing and Administering Cisco Solutions (CCNA) v2.0.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+From Sep 2022 - Dec 2022 I was a Business Systems analyst also for [Toronto-Dominion Bank](https://www.td.com/ca/en/personal-banking) as a co-op. I helped with [nCino](https://www.ncino.com/) implementation by writing tests and standards. I also helped refine and test legacy variables to help with the move to [Salesforce](https://www.salesforce.com/ca/).
+
+From Jan 2022 - Apr 2022 I was a QA Analyst for [ZeMaas](https://www.linkedin.com/company/zemaas/) as a co-op. I helped with documentation, writing tests/requirements, app design, market research/cost analysis, and a  tad of UX building.
+
+From May 2021 -  Aug 2021 I was an IT Technical Specialist for the [Toronto Transit Commission](ttc.ca) as a co-op. There I helped with developing/recording into the equipment failure database and maintaied order for a variety of PC/Server hardware, software, related applications, and peripheral devices.
+
+## Education:
+
+From 2019 - 2024 I studied at the [University of Waterloo](https://uwaterloo.ca/), where I earned my BMath co-op degree with a minor in computing.
+
+From 2015 - 2019 I studied at TCPHS, where I earned both my OSSD and IB Diploma.
+
+## Other:
+
+I can produce media (Editing videos and photos via Premiere, Photoshop, XD). I also have a 3rd Dan Black Belt Taekwondo Certificate, and used to play the piano at an RCMP 10th grade level.

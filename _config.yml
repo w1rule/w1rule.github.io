@@ -1,30 +1,26 @@
-title: Garrick Wong
-description: Jekyll theme for a beautiful online CV
+title: What the fuck am I doing
+description: A personal site
 baseurl: ""
 url: https://https://garrickw.com
 
 theme: cvless
 
 # site settings
-taglong: Jekyll theme for a beautiful online CV
-tagshort: Jekyll theme
+taglong: Please hire me oh god oh fuck
+tagshort: A personal site
 
 # author settings
 author:
   name: Garrick Wong
   email: garrick1224@gmail.com
 photo: assets/files/photo.jpg
-address: Foobar Hall 1.23
+address: Toronto, Canada
 phone: +1 647 230 2926
 
 # social media links
 social:
-  #facebook: username
   github: w1rule
-  #instagram: username
   linkedin: garrick-w
-  #stackoverflow: 0000000/username
-  #x: username
 
 # build settings
 permalink: pretty
