@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Blog Post
-lead: Bottom Text
+lead: Please click me
 ---
 
 Hello, thanks for clicking on my first blog post.
