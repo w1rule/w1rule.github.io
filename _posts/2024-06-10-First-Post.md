@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Blog Post
+title: First Blog Post
 lead: Please click me
 ---
 
