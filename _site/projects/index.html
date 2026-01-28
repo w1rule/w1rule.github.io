@@ -26,8 +26,8 @@
 <meta property="og:title" content="Projects" />
 <meta name="author" content="Garrick Wong" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A personal site" />
-<meta property="og:description" content="A personal site" />
+<meta name="description" content="DevOps Cloud QA IT" />
+<meta property="og:description" content="DevOps Cloud QA IT" />
 <link rel="canonical" href="http://localhost:4000/projects/" />
 <meta property="og:url" content="http://localhost:4000/projects/" />
 <meta property="og:site_name" content="Garrick Wong" />
@@ -35,7 +35,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Projects" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Garrick Wong"},"description":"A personal site","headline":"Projects","url":"http://localhost:4000/projects/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Garrick Wong"},"description":"DevOps Cloud QA IT","headline":"Projects","url":"http://localhost:4000/projects/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -55,7 +55,7 @@
     <a class="site-title" href="http://localhost:4000">Garrick Wong</a>
     <small>
       
-      A personal site
+      DevOps | Cloud | QA | IT
       
     </small>
   </div>
@@ -63,7 +63,92 @@
 </header>
 
   <main>
-    <h1 style="text-align: center;">Projects</h1>
+    <style>
+  /* Project sections */
+  .project-section {
+    margin-bottom: 3em;
+  }
+  
+  .project-section h2 {
+    font-weight: 700;
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+    text-align: center;
+  }
+  
+  .project-section h3 {
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    text-transform: none;
+  }
+  
+  /* Image placeholder */
+  .project-image {
+    width: 100%;
+    max-width: 800px;
+
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5em auto;
+    color: #999;
+    font-style: italic;
+  }
+  
+  /* Tech stack badges */
+  .tech-stack {
+    margin-top: 1em;
+    padding: 1em;
+    background-color: #f8f9fa;
+    border-left: 4px solid #007bff;
+  }
+  
+  .tech-stack strong {
+    display: block;
+    margin-bottom: 0.5em;
+    color: #333;
+  }
+  
+  /* Paragraphs */
+  .project-section p {
+    margin-bottom: 1em;
+    line-height: 1.7;
+  }
+  
+  /* Links */
+  .project-section a {
+    color: #007bff;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.2s;
+  }
+  
+  .project-section a:hover {
+    border-bottom: 1px solid #007bff;
+  }
+  
+  /* Download button */
+  .download-btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: #5865F2;
+    color: white !important;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 1em 0;
+    transition: background-color 0.3s;
+  }
+  
+  .download-btn:hover {
+    background-color: #4752C4;
+    border-bottom: none;
+  }
+</style>
+
+<h1 style="text-align: center;">Projects</h1>
 
 <div class="contact">
   <h2>Contact</h2>
@@ -77,71 +162,124 @@
   </ul>
 </div>
 
-<h2 style="text-align: center;">TrueNAS server</h2>
+<hr class="cv-divider" />
 
-<p>This project is a repurposed Dell Optiplex with two 6tb Toshiba n300 drives for redundancy running TrueNAS Scale. The system minimizes power usage while maintaining availability via WOL, cron, and Wireguard.</p>
+<!-- TrueNAS Server Project -->
+<section class="project-section">
+  <h2>TrueNAS Server</h2>
+  
+  <div class="project-image">
+  <img src="/assets/images/truenas.png" alt="TrueNAS Dashboard" style="width: 100%; height: auto;" />
+    </div>
+  
+  <p>A repurposed Dell Optiplex server running <a href="https://www.truenas.com/truenas-scale/" target="_blank">TrueNAS Scale</a> with two 6TB Toshiba N300 drives in a redundant configuration. The system minimizes power consumption while maintaining remote availability through Wake-on-LAN, cron automation, and <a href="https://www.wireguard.com/" target="_blank">WireGuard VPN</a>.</p>
+  
+  <h3>The Challenge</h3>
+  <p>I needed a solution for sharing large video files 1-2 times per month with remote users, while balancing drive longevity, power efficiency, and security. The server needed to be accessible from outside the home network without exposing the entire network to security risks.</p>
+  
+  <h3>Implementation</h3>
+  <p>The drives were configured as Windows SMB shares, with the OS running on a dedicated SSD for fast boot times. Remote access was implemented using <a href="https://www.wireguard.com/" target="_blank">WireGuard</a>, an open-source VPN solution, with client configurations generated through the <a href="https://github.com/wg-easy/wg-easy" target="_blank">wg-easy</a> plugin for TrueNAS Scale.</p>
+  
+  <p>Strict routing rules ensure the VPN connection only accesses the NAS—no port forwarding or gateway routing to the home network. Users simply enable the VPN app and connect as if they were on the local network.</p>
+  
+  <p>I configured the BIOS and network interface for Wake-on-LAN using <a href="https://www.depicus.com/wake-on-lan/" target="_blank">Depicus</a> magic packets. A cron job automatically shuts down the system after 30 minutes of network inactivity, optimizing for HDD wear while maintaining availability when needed.</p>
+  
+  <div class="tech-stack">
+    <strong>Tools &amp; Technologies:</strong>
+    <a href="https://www.truenas.com/truenas-scale/" target="_blank">TrueNAS SCALE</a> (Debian-based), systemd, cron, <a href="https://www.wireguard.com/" target="_blank">WireGuard</a>, Wake-on-LAN, BIOS configuration, Bash scripting
+  </div>
+</section>
 
-<p> Background: This server is used 1-2 times every month with the purpose of sharing large video files. Because of this, I aimed to allow remote access while shutting down the server after periods of inactivity to balance drive health and power savings. To start, the drives were installed, formatted and made into Windows SMB shares, with the original SSD holding the OS itself for fast booting. Remote access was handled via Wireguard, a FOSS vpn, while client-side configuration was generated by the Scale wg-easy plugin. The machine has strict routing rules to ensure minimal exposure to the home network to ensure no port forwarding or VPN gateway routing beyond the NAS. From there the user just has to turn on the vpn via app and connect locally. </p>
+<hr class="cv-divider" />
 
-<p> I then configured the BIOS and network interface for power on via magic packet using depicus.com, and set a cron job that shuts down the system after 30 minutes of no network activity. The end result is a machine optimized for my specific use case — balancing HDD wear concerns with system uptime using delayed shutdown, allowing access for users outside the home network, and restricting any unintended access to the home network.</p>
+<!-- Discord Bot Project -->
+<section class="project-section">
+  <h2>Discord Chatbot with Image Manipulator</h2>
+  
+  <a href="https://discord.com/oauth2/authorize?client_id=850845944698241075&amp;permissions=2147534848&amp;integration_type=0&amp;scope=bot+applications.commands" class="download-btn" target="_blank">Add Bot to Your Server</a>
+  
+  <p><em>Usage: Post an image in your server and type /wojak</em></p>
+  
+  <div class="project-image">
+  <img src="/assets/images/wojak.png" alt="TrueNAS Dashboard" style="width: 100%; height: auto;" />
+    </div>
+  
+  <p>A <a href="https://discord.com/developers/docs/intro" target="_blank">Discord bot</a> that fetches the last image sent in a channel, uploads it to <a href="https://imgur.com/" target="_blank">Imgur</a>, and overlays it with a pointing Wojak meme using <a href="https://cloudinary.com/" target="_blank">Cloudinary</a>—all deployed on <a href="https://workers.cloudflare.com/" target="_blank">Cloudflare Workers</a> at zero cost. The bot also includes a simple calculator function.</p>
+  
+  <h3>Cloudflare Workers &amp; Deployment</h3>
+  <p>The bot's core logic runs on <a href="https://workers.cloudflare.com/" target="_blank">Cloudflare Workers</a>, a serverless platform that handles Discord interactions, Cloudinary transformations, and image processing. Deployment is managed through <a href="https://developers.cloudflare.com/workers/wrangler/" target="_blank">Wrangler</a>, Cloudflare's CLI tool, which builds and deploys the worker automatically.</p>
+  
+  <p>The setup and registration scripts use <a href="https://nodejs.org/" target="_blank">Node.js</a> to interact with the <a href="https://discord.com/developers/docs/intro" target="_blank">Discord API</a> and register slash commands. <a href="https://www.npmjs.com/" target="_blank">npm</a> manages project dependencies and tools.</p>
+  
+  <h3>Discord &amp; Imgur API Integration</h3>
+  <p>The bot registers slash commands and fetches messages through Discord's API. When a user posts an image, the bot uploads it to <a href="https://imgur.com/" target="_blank">Imgur</a> via their API, which provides a permanent URL and image dimensions (width and height) needed for processing.</p>
+  
+  <p>Imgur serves as an intermediary because <a href="https://cloudinary.com/" target="_blank">Cloudinary</a> doesn't recognize Discord's ephemeral media URLs. This permanent hosting enables dynamic transformations.</p>
+  
+  <h3>Cloudinary Image Processing</h3>
+  <p><a href="https://cloudinary.com/" target="_blank">Cloudinary</a> handles the dynamic image transformations. After retrieving the Imgur URL, the bot passes it to Cloudinary where the pointing Wojak overlay is applied. The overlay scales dynamically based on the original image dimensions from Imgur's metadata, ensuring proper proportions regardless of the input image size.</p>
+  
+  <h3>Calculator Function</h3>
+  <p>The bot includes a calculator feature that handles mathematical expressions. Since Cloudflare Workers disallow code generation from strings (like <code>eval()</code>) for security reasons, I built a custom parser and evaluator to safely process mathematical expressions.</p>
+  
+  <div class="tech-stack">
+    <strong>Tools &amp; Technologies:</strong>
+    <a href="https://workers.cloudflare.com/" target="_blank">Cloudflare Workers</a>, <a href="https://developers.cloudflare.com/workers/wrangler/" target="_blank">Wrangler</a>, <a href="https://nodejs.org/" target="_blank">Node.js</a>, <a href="https://www.npmjs.com/" target="_blank">npm</a>, <a href="https://discord.com/developers/docs/intro" target="_blank">Discord API</a>, <a href="https://imgur.com/" target="_blank">Imgur API</a>, <a href="https://cloudinary.com/" target="_blank">Cloudinary API</a>
+  </div>
+</section>
 
-<p>Tools &amp; Technologies:
-TrueNAS SCALE (Debian-based), systemd, cron, WireGuard, Wake-on-LAN,Bios configuration, Bash scripting.</p>
+<hr class="cv-divider" />
 
-<h2 style="text-align: center;">Discord Chatbot with Image Manipulator</h2>
+<!-- Website Project -->
+<section class="project-section">
+  <h2>This Website</h2>
+  
+  <div class="project-image">
+  <img src="/assets/images/websiteo.png" alt="TrueNAS Dashboard" style="width: 100%; height: auto;" />
+    </div>
+  
+  <p>A personal portfolio website built with modern static site generation tools, hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a> with a custom domain from <a href="https://www.namecheap.com/" target="_blank">Namecheap</a>. The site showcases my professional experience, skills, and projects using <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>, custom CSS, and automated deployment workflows.</p>
+  
+  <h3>Static Hosting with GitHub Pages</h3>
+  <p>The site is hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>, a free hosting platform for static websites. Updates are deployed automatically by pushing changes to the repository, making the development workflow seamless and efficient.</p>
+  
+  <h3>Custom Domain Configuration</h3>
+  <p>I registered a custom domain through <a href="https://www.namecheap.com/" target="_blank">Namecheap</a> and configured the DNS settings to point to GitHub Pages using A records and CNAME entries. This gives the site a professional appearance while leveraging free hosting.</p>
+  
+  <h3>Jekyll Site Generation</h3>
+  <p>The website is built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>, a static site generator written in Ruby. Jekyll converts <a href="https://www.markdownguide.org/" target="_blank">Markdown</a> files into HTML, making content creation simple and maintainable.</p>
+  
+  <p>Key features include:</p>
+  <ul>
+    <li><strong>Markdown:</strong> Clean, readable format for writing content like project descriptions</li>
+    <li><strong><a href="https://shopify.github.io/liquid/" target="_blank">Liquid Templating</a>:</strong> Reusable components (headers, footers, layouts) throughout the site</li>
+    <li><strong>Modular Layouts:</strong> Consistent page structure with customization flexibility</li>
+  </ul>
+  
+  <h3>GitHub Actions Workflow</h3>
+  <p>The site uses <a href="https://github.com/features/actions" target="_blank">GitHub Actions</a> for automated build and deployment. Every commit triggers an automatic build process, with configurations stored in <code>.github/workflows/jekyll.yml</code>. This ensures the live site always reflects the latest changes.</p>
+  
+  <h3>Custom Theme &amp; Styling</h3>
+  <p>I'm using a customized version of the <a href="https://github.com/piazzai/cvless" target="_blank">cvless theme</a>, installed via a Gemfile for easy dependency management. Custom modifications include SVG icons from <a href="https://www.svgrepo.com/" target="_blank">SVG Repo</a> and adjusted CSS for improved typography and layout.</p>
+  
+  <div class="tech-stack">
+    <strong>Tools &amp; Technologies:</strong>
+    <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>, <a href="https://www.markdownguide.org/" target="_blank">Markdown</a>, <a href="https://shopify.github.io/liquid/" target="_blank">Liquid</a>, <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>, <a href="https://github.com/features/actions" target="_blank">GitHub Actions</a>, <a href="https://www.namecheap.com/" target="_blank">Namecheap</a>, HTML/CSS, <a href="https://github.com/piazzai/cvless" target="_blank">cvless theme</a>
+  </div>
+</section>
 
-<p><a href="https://discord.com/oauth2/authorize?client_id=850845944698241075&amp;permissions=2147534848&amp;integration_type=0&amp;scope=bot+applications.commands">Download the bot</a></p>
+<hr class="cv-divider" />
 
-<p>Post an image and type /wojak in a server.</p>
-
-<p>This project is primarily a Discord bot that fetches the last image sent in a channel, uploads it to Imgur, and overlays it with a static image using Cloudinary completely for free. The bot is deployed on Cloudflare Workers, uses the Discord API to interact with Discord, and leverages various dependencies like Wrangler, Node.js, and npm. It is also a simple calculator.</p>
-
-<h3 style="text-align: center;">Cloudflare Workers/Wrangler/Dependencies</h3>
-<p>The bot’s core logic (interacting with Discord and Cloudinary, processing images, etc.) is handled in a Cloudflare Worker. Wrangler is used to manage, build, and deploy the Worker. Wrangler is Cloudflare’s CLI tool. The bot’s setup and registration scripts use Node.js to interact with the Discord API and register application commands. Additionally, Node.js handles HTTP requests to Imgur and Cloudinary, providing an environment to process and interact with images. Npm is used to manage the project’s dependencies and tools like Wrangler.</p>
-
-<h3 style="text-align: center;">Discord/Imgur API</h3>
-<p>The bot interacts with Discord’s API to register commands, handle slash commands, and fetch messages in Discord channels. Imgur is used as the intermediary image hosting service. When a user sends an image in Discord, the bot uploads that image to Imgur via their API. The Imgur API provides an easy way to host images and retrieve dimensions (width and height), which are essential for further image processing. Since Cloudinary doesn’t recognize ephemeral media, Imgur is used to upload the image fetched from Discord and provide a permanent URL that Cloudinary can use for transformations.</p>
-
-<h3 style="text-align: center;">Cloudinary and Image Processing</h3>
-<p>Cloudinary is used for dynamic image transformations and overlays. After uploading an image to Imgur, the bot retrieves the image and passes it to Cloudinary, where the bot overlays a static image (a pointing Wojak image) on top of the uploaded image. The overlaid image is scaled dynamically to the posted image’s dimensions via data from Imgur. The image is then finally sent in the chat.</p>
-
-<h3 style="text-align: center;">Calculator function</h3>
-<p>Fairly self explanatory except for code generation from strings disallowed in Cloudflare workers due to security issues. A simple parser/evaluator is made to compensate for this.</p>
-
-<hr />
-
-<h2 style="text-align: center;">This Website</h2>
-
-<p>This project is a personal portfolio website designed to showcase my professional skills, work experience, and educational background. It’s built using modern static site generation tools and hosted on GitHub Pages with a custom domain from Namecheap. It utilizes Jekyll, custom CSS for styling, and various integrations for automation and optimization.</p>
-
-<h3 style="text-align: center;">Static Website Hosting with GitHub Pages</h3>
-<p>The site is hosted on GitHub Pages, a free hosting platform for static websites. By using GitHub Pages, I can publish updates by pushing changes to a specific branch in the repository. GitHub Pages automates the deployment process, making it quick and easy to keep the site up-to-date with minimal effort.</p>
-
-<h3 style="text-align: center;">Custom Domain with Namecheap</h3>
-<p>I use a custom domain registered with Namecheap. Namecheap’s DNS configuration is integrated with GitHub Pages to map the domain to my GitHub-hosted site. Luckily there is documentation online for connecting a record and CNAME to the website.</p>
-
-<h3 style="text-align: center;">Jekyll for Site Generation</h3>
-<p>The website is built with Jekyll, a static site generator written in Ruby. Jekyll allows for easy content management using Markdown files, while generating the necessary HTML for a fully-functional website. With Jekyll, I also used:</p>
-
-<ul>
-  <li><strong>Markdown:</strong> For writing content (e.g., blog posts, project descriptions) in a clean, readable format.</li>
-  <li><strong>Liquid Templating Engine:</strong> For creating reusable components (e.g., headers, footers, and layouts) throughout the website.</li>
-  <li><strong>Layouts and Partials:</strong> Modularized layouts to ensure consistency across different pages, while still allowing customization when necessary.</li>
-</ul>
-
-<h3 style="text-align: center;">Github Actions Workflow</h3>
-<p>Once you set up the automated build process integrated with github, the site is automatically built and deployed with every commit, the configurations are stored in .github/workflows/jekyll.yml</p>
-
-<h3 style="text-align: center;">Custom Theme and Gemfiles</h3>
-<p>To customize the look of the website, I utilized a Jekyll theme installed via a Gemfile for easy dependency management. I added a few SVG icons from svgrepo and cut/modified elements from the original theme.</p>
-<h2 style="text-align: center;">Others</h2>
-
-<p>Fairly certain I’m not allowed to post school projects or the code I wrote for TD’s data centers unless I want to get sued.</p>
-
+<!-- Other Projects -->
+<section class="project-section">
+  <h2>Other Work</h2>
+  
+  <p>Fairly certain I'm not allowed to post school projects or the code I wrote for TD's data centers unless I want to get sued.</p>
+</section>
 
   </main>
   <footer>
-  <small>&copy; <time datetime="2026-01-07T14:22:11-05:00">2026</time>
+  <small>&copy; <time datetime="2026-01-28T09:35:11-05:00">2026</time>
     Garrick Wong. All rights reserved.</small>
 </footer>
 

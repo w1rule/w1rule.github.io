@@ -2,39 +2,176 @@
 layout: cv
 title: CV
 ---
+<style>
+  .cv-title {
+    font-weight: 700;
+    font-size: 2.5em;
+    margin-bottom: 1em;
+  }
+  /* Make the main title prominent */
+  h1 {
+    font-weight: 700;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+  }
+  p {
+    font-size: .85em;
+  }
+  
+  /* Section headers */
+  .cv-section h2 {
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+  }
+  
+  /* Company names */
+  .cv-role h3 {
+    font-weight: 700;
+    font-size: 1.3em;
+    margin-bottom: 0.3em;
+  }
+  
+  /* Job titles and dates */
+  .cv-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-weight: 600;
+    font-size: .9em;
+    margin-bottom: 0.5em;
+  }
 
-<h1 style="text-align: center;">Curriculum Vitæ</h1>
+  .cv-meta-unbold {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: .9em;
+    margin-bottom: 0.5em;
+  }
+
+  /* Skills list */
+  .cv-list li {
+    margin-bottom: 0.5em;
+    line-height: 1.6;
+  }
+</style>
+
+<h2 class="cv-title" style="text-align: center;">Curriculum Vitæ</h2>
 <p style="text-align: center;">
   <a href="/assets/files/cv.pdf">Full Version</a>
 </p>
 
-
 {% include contact.html %}
 
-<h2 style="text-align: center;">Skills and Interests:</h2>
+<hr class="cv-divider">
 
-* Networks (Layers, cloud, protocols, domains, etc) and Data Intensive Distributed Systems (Pyspark, DataFrames, Big Data).
-* Python, C, SQL, R, Scheme, Bash scripting, version control (git, bitbucket) and Jira/Agile. 
-* Relational database design, (SQLite/MySQL).
-* Managing/researching hardware, computers, competing products, and software. 
-* Application design (UX, user flow, user needs)
+<section class="cv-section">
+  <h2 style="text-align: center;">Skills and Interests:</h2>
 
-<h2 style="text-align: center;">Work Experience:</h2>
+  <ul class="cv-list">
+    <li>Business Development/Analysis (Market research, cost analysis, risk evaluation).</li>
+    <li>Networks (layers, cloud, protocols, domains) and data-intensive distributed systems (PySpark, DataFrames, Big Data).</li>
+    <li>Python, C, SQL, R, Scheme, Bash scripting, version control (Git, Bitbucket), Jira / Agile.</li>
+    <li>Relational database design (SQLite, MySQL).</li>
+    <li>Hardware research, system comparison, and software evaluation.</li>
+    <li>Application design (UX, user flows, user needs).</li>
+  </ul>
+</section>
 
-* From May 2023 - Dec 2023 I was a Cloud/DevOps Engineer at [Toronto-Dominion Bank](https://www.td.com/ca/en/personal-banking) as a co-op. I worked primarily on NX-OS server YAML template automation with [jinja2](https://jinja.palletsprojects.com/en/3.1.x/) and took Implementing and Administering Cisco Solutions (CCNA) v2.0.
+<hr class="cv-divider">
 
-* From Sep 2022 - Dec 2022 I was a Business Systems analyst also for [Toronto-Dominion Bank](https://www.td.com/ca/en/personal-banking) as a co-op. I helped with [nCino](https://www.ncino.com/) implementation by writing tests and standards. I also helped refine and test legacy variables to help with the move to [Salesforce](https://www.salesforce.com/ca/).
+<section class="cv-section">
+  <h2 style="text-align: center;">Work Experience:</h2>
 
-* From Jan 2022 - Apr 2022 I was a QA Analyst for [ZeMaas](https://www.linkedin.com/company/zemaas/) as a co-op. I helped with documentation, writing tests/requirements, app design, market research/cost analysis, and a  tad of UX building.
+  <div class="cv-role">
+    <h3>StingerTech.ca</h3>
+    <div class="cv-meta">
+    <span class="job-title">Web Developer</span>
+    <span class="job-dates">June 2024 – Present</span>
+    </div>
+    <p>
+      I worked on local data center production using <a href="https://www.truenas.com/">TrueNAS</a>. Web development using <a href="https://tailwindcss.com/">Tailwind CSS</a>, and many other focused IT related tasks.
+    </p>
+  </div>
 
-* From May 2021 -  Aug 2021 I was an IT Technical Specialist for the [Toronto Transit Commission](ttc.ca) as a co-op. There I helped with developing/recording into the equipment failure database and maintaied order for a variety of PC/Server hardware, software, related applications, and peripheral devices.
+  <div class="cv-role">
+    <h3>Toronto-Dominion Bank</h3>
+    <div class="cv-meta">
+    <span class="job-title">Cloud / DevOps Engineer (Co-op)</span>
+    <span class="job-dates">May 2023 – Dec 2023</span>
+    </div>
+    <p>
+      I worked on data center automation (NX-OS server YAML template automation using
+      <a href="https://jinja.palletsprojects.com/en/3.1.x/">Jinja2</a>),
+      completed Implementing and Administering Cisco Solutions (CCNA) v2.0, and researched/documented TD's SilverPeak and Aruba/ClearPass Zero-Touch Provisioning branch office network solution. 
+    </p>
+  </div>
 
-<h2 style="text-align: center;">Education:</h2>
+  <div class="cv-role">
+    <h3>Toronto-Dominion Bank</h3>
+    <div class="cv-meta">
+    <span class="job-title">Business Systems Analyst (Co-op)</span>
+    <span class="job-dates">Sep 2022 – Dec 2022</span>
+    </div>
+    <p>
+      I supported TD's <a href="https://www.ncino.com/">nCino</a> implementation by writing tests
+      and standards. I also assisted in refining and validating legacy variables for migration
+      to <a href="https://www.salesforce.com/ca/">Salesforce</a>.
+    </p>
+  </div>
 
-From 2019 - 2024 I studied at the [University of Waterloo](https://uwaterloo.ca/), where I earned my BMath co-op degree with a minor in computing.
+  <div class="cv-role">
+    <h3>ZeMaas</h3>
+    <div class="cv-meta">
+    <span class="job-title">QA Analyst (Co-op)</span>
+    <span class="job-dates">Jan 2022 – Apr 2022</span>
+    </div>
+    <p>
+      I contributed to documentation, test and requirement writing, application design,
+      market research, cost analysis, and UX improvements.
+    </p>
+  </div>
 
-From 2015 - 2019 I studied at TCPHS, where I earned both my OSSD and IB Diploma.
+  <div class="cv-role">
+    <h3>Toronto Transit Commission</h3>
+    <div class="cv-meta">
+    <span class="job-title">IT Technical Specialist (Co-op)</span>
+    <span class="job-dates">May 2021 – Aug 2021</span>
+    </div>
+    <p>
+      I maintained equipment failure databases and managed PC/server hardware,
+      software, applications, and peripheral devices.
+    </p>
+  </div>
+</section>
 
-<h2 style="text-align: center;">Other:</h2>
+<hr class="cv-divider">
 
-I can produce media (Editing videos and photos via Premiere, Photoshop, XD). I also have a 3rd Dan Black Belt Taekwondo Certificate, and used to play the piano at an RCMP 10th grade level.
+<section class="cv-section">
+  <h2 style="text-align: center;">Education:</h2>
+
+  <div class="cv-role">
+    <h3>University of Waterloo</h3>
+    <div class="cv-meta-unbold">
+    <span class="job-title">BMath (Co-op), Minor in Computing </span>
+    <span class="job-dates">2019 – 2024</span>
+    </div>
+  </div>
+
+  <div class="cv-role">
+    <h3>TCPHS</h3>
+    <div class="cv-meta-unbold">
+    <span class="job-title">OSSD & IB Diploma </span>
+    <span class="job-dates">2015 – 2019</span>
+  </div>
+
+<hr class="cv-divider">
+
+<section class="cv-section">
+  <h2 style="text-align: center;">Other:</h2>
+  <p>
+    Media production (video and photo editing using Premiere, Photoshop, XD).
+    3rd Dan Black Belt in Taekwondo. Former piano player (RCMP Level 10).
+  </p>
+</section>
