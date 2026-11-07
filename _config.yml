@@ -1,13 +1,13 @@
 title: Garrick Wong
-description: A personal site
+description: DevOps | Cloud | QA | IT
 baseurl: ""
 url: https://garrickw.com
 
 theme: cvless
 
 # site settings
-taglong: A personal site
-tagshort: A personal site
+taglong: DevOps | Cloud | QA | IT
+tagshort: DevOps | Cloud | QA | IT
 
 # author settings
 author:
