@@ -88,7 +88,7 @@ title: CV
     <h3>StingerTech.ca</h3>
     <div class="cv-meta">
     <span class="job-title">Web Developer</span>
-    <span class="job-dates">June 2024 – Present</span>
+    <span class="job-dates">June 2024 – September 2026</span>
     </div>
     <p>
       I worked on local data center production using <a href="https://www.truenas.com/">TrueNAS</a>. Web development using <a href="https://tailwindcss.com/">Tailwind CSS</a>, and many other focused IT related tasks.
